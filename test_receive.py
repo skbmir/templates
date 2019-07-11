@@ -24,6 +24,8 @@ def main():
         data = msg.data
         cmd = msgpack.unpackb(data)
         print("[Received on '{}'] : {}".format(subject, cmd))
+        
+        print(cmd["gear"])
 
     # Simple async subscriber
     sid = yield nc.subscribe("cmd", cb=message_handler)
